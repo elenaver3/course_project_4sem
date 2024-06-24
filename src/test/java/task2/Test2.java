@@ -19,25 +19,18 @@ public class Test2 {
     }
 
     @Test
-    public void test2Test1() {
+    public void test2() {
         mospolytechManager.clickRaspBtn();
-    }
 
-    @Test
-    public void test2Test2() {
         mospolytechManager.clickWatchOnSiteBtn();
-    }
 
-    @Test
-    public void test2Test3() {
         String groupNumber = "221-361";
         mospolytechManager.findGroup(groupNumber);
         mospolytechManager.chooseGroup(groupNumber);
+
+        mospolytechManager.checkDate();
+
     }
 
-    @Test
-    public void test2Test4() {
-        Assert.assertEquals(true, mospolytechManager.getChosenDate());
-    }
 
 }

@@ -3,7 +3,6 @@ package common;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.util.Set;
 
 public class DriverManager {
 

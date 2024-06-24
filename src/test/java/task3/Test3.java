@@ -21,43 +21,22 @@ public class Test3 {
     }
 
     @Test
-    public void test3Test1() {
+    public void test3() {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         yandexMarketManager.catalogClick();
-    }
 
-    @Test
-    public void test3Test2() {
         yandexMarketManager.electronicsClick();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         yandexMarketManager.laptopsClick();
-    }
 
-    @Test
-    public void test3Test3() {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         int k = 5;
-        String[] names = yandexMarketManager.getNames(k);
-        String[] prices = yandexMarketManager.getPrices(k);
-        for (int i = 0; i < k; i++) {
-            System.out.println("Название: " + names[i] + "\nЦена: " + prices[i]);
-        }
-        System.out.println();
-    }
+        yandexMarketManager.getItems(5);
 
-    @Test
-    public void test3Test4() {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         yandexMarketManager.setPrices("60000", "110000");
-        int k = 5;
-        String[] names = yandexMarketManager.getNewNames(k);
-        String[] prices = yandexMarketManager.getNewPrices(k);
-        for (int i = 0; i < k; i++) {
-            System.out.println("Название: " + names[i] + "\nЦена: " + prices[i]);
-            String a = prices[i].replaceAll(" ","");
-//            int selectedPrice = ;
-//            Assert.assertTrue(yandexMarketManager.isInRange(60000, 110000, selectedPrice));
-        }
+        yandexMarketManager.getNewItems(5);
     }
+
 
 }

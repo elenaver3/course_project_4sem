@@ -1,5 +1,7 @@
 package common;
 
+import io.qameta.allure.Step;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,25 +38,30 @@ public class MospolytechManager {
     @FindBy(xpath = "//*[contains(@class, 'schedule-day_today')]/div[1]")
     private WebElement chosenDate;
 
+    @Step
     public void clickRaspBtn() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         raspBtn.click();
+        System.out.println("Страница Расписания открыта");
     }
 
     public void clickWatchOnSiteBtn() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         watchOnSite.click();
         newTab();
+        System.out.println("Страница поиска расписания открыта в новой вкладке");
     }
 
     public void findGroup(String groupNumber) {
         inputGroup.click();
         inputGroup.sendKeys(groupNumber);
+        System.out.println("Группа " + groupNumber + " введена");
     }
 
     public void chooseGroup(String groupNumber) {
         groupBtn = driver.findElement(By.xpath("//*[@id =\"" + groupNumber + "\"]"));
         groupBtn.click();
+        System.out.println("Группа " + groupNumber + " выбрана");
     }
 
     public boolean getChosenDate() {
@@ -83,4 +90,11 @@ public class MospolytechManager {
             return false;
     }
 
+    public void checkDate() {
+        Assert.assertEquals(true, getChosenDate());
+        if (getChosenDate())
+            System.out.println("Дата верная");
+        else
+            System.out.println("Дата неверная");
+    }
 }
